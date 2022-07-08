@@ -1,0 +1,13 @@
+body {
+    color: #c8d4f9;
+    background: #20263e;
+    background: -moz-radial-gradient(center, ellipse cover, #222940 0%, #10141f 100%);
+    background: -webkit-radial-gradient(center, ellipse cover, #222940 0%, #10141f 100%);
+    background: radial-gradient(ellipse at center, #222940 0%, #10141f 100%);
+    font-weight: 400;
+    background-attachment: fixed;
+}
+
+form {
+    border-radius: 15px !important;
+}

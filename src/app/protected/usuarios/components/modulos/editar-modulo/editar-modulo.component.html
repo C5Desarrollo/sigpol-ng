@@ -1,0 +1,75 @@
+<h2>Editar modulo</h2>
+
+<mat-divider class="mb-3"></mat-divider>
+
+<div fxLayout="row" fxLayoutGap="100">
+    <form fxFlex="100" fxLayout="column" [formGroup]="moduloForm">
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Nombre modulo:</mat-label>
+                <input matInput formControlName="nombre" type="text" placeholder="" autocomplete="off">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Nombre menu:</mat-label>
+                <input matInput formControlName="Nombre_menu" type="text" placeholder="" autocomplete="off">
+            </mat-form-field>
+
+        </div>
+
+
+        <div fxLayout="row" fxLayoutGap="30px">
+
+            <mat-form-field appearance="outline" fxFlex="100">
+                <mat-label>Url (path):</mat-label>
+                <input matInput formControlName="URL" type="text" placeholder="" autocomplete="off">
+                <span class="form-text text-danger" *ngIf="campoNoValido('URL')">
+                    No debe ser menor de 6 caracteres
+                </span>
+            </mat-form-field>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col">
+                <button class="ml-2 float-right" mat-raised-button color="primary" type="button" (click)="editModulo()">
+                    Guardar
+                    <mat-icon>save</mat-icon>
+                </button>
+                <button class="float-right" mat-raised-button color="warn" type="button" (click)="cancelarAlta()">
+                    Cancelar
+                    <mat-icon>cancel</mat-icon>
+                </button>
+            </div>
+
+        </div>
+
+    </form>
+
+</div>
+<hr>
+
+<h3>Valores Formulario</h3>
+<div class="row text-danger">
+    <div class="col">
+
+        <span>Valid</span>
+        <pre>{{moduloForm.valid}}</pre>
+
+        <span>Pristine</span>
+        <pre>{{moduloForm.pristine}}</pre>
+
+        <span>Touched</span>
+        <pre>{{moduloForm.touched}}</pre>
+
+    </div>
+    <div class="col">
+
+        <span>Value</span>
+        <pre>{{moduloForm.value | json}}</pre>
+
+    </div>
+</div>

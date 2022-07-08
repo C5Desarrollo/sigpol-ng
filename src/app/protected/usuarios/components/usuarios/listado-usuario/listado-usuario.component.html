@@ -1,0 +1,47 @@
+<div class="row">
+    <div class="col-sm-16">
+        <div class="card">
+            <div class="card-header">
+                <div class="div">
+                    <div class="col">
+                        <button mat-raised-button class="float-right" (click)="createUser()">Nuevo</button>
+                        <h5 class="card-title">Listado <small>sistema usuarios</small></h5>
+                    </div>
+                </div>
+            </div>
+            <div class="card-block">
+                <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
+                    <ng-container matColumnDef="Apaterno">
+                        <th mat-header-cell *matHeaderCellDef> Apaterno </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Apaterno}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Amaterno">
+                        <th mat-header-cell *matHeaderCellDef> Amaterno </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Amaterno}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Nombre">
+                        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+                        <td mat-cell *matCellDef="let element"> {{element.Nombre}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="FCap">
+                        <th mat-header-cell *matHeaderCellDef> FCap </th>
+                        <td mat-cell *matCellDef="let element"> {{element.FCap | date:'short' }} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="FMod">
+                        <th mat-header-cell *matHeaderCellDef> FMod </th>
+                        <td mat-cell *matCellDef="let element"> {{element.FMod | date:'short'}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Acciones" class="d-flex justify-content-center">
+                        <th mat-header-cell *matHeaderCellDef> Acciones </th>
+                        <td mat-cell *matCellDef="let element">
+                            <button mat-raised-button color="primary" class="mr-2" (click)="editUser(element.uuid)">Editar</button>
+                            <button mat-raised-button color="warn">Cancelar</button>
+                        </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
